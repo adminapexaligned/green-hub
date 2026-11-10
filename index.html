@@ -174,11 +174,16 @@ figcaption{font-size:14px;color:var(--muted);padding-top:8px}
 .tier .btn{margin-top:auto;align-self:flex-start}
 
 /* directory */
-.filters{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;margin-bottom:20px}
 .chip{min-height:40px;padding:0 14px;border-radius:6px;border:1px solid var(--btn-line);background:transparent;color:var(--ink);font:600 15px var(--body);cursor:pointer}
 .chip[aria-pressed="true"]{background:var(--green);color:var(--on-green);border-color:var(--green)}
+.dfilters{display:grid;gap:14px 16px;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));align-items:end}
+.check{display:flex;align-items:center;gap:10px;font-weight:600;font-size:16px;min-height:44px;grid-column:1/-1;cursor:pointer}
+.check input{width:20px;min-height:20px;height:20px;accent-color:#2F6F4C;flex-shrink:0}
 .nlist{border-top:2px solid var(--head)}
-.nrow{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1.4fr) auto;gap:6px 28px;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--rule)}
+.nrow .contact{display:flex;flex-direction:column;gap:2px;font-size:17px}
+.nrow .phone{font-weight:600;font-variant-numeric:tabular-nums;user-select:all}
+@media (min-width:761px){.nrow .contact{align-items:flex-end;text-align:right}}
+.nrow{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1.2fr) minmax(0,.8fr);gap:6px 28px;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--rule)}
 .nrow h3{font-size:24px}
 .nrow .stock{font-weight:600;color:var(--link)}
 @media (max-width:760px){.nrow{grid-template-columns:minmax(0,1fr)}}
@@ -227,7 +232,7 @@ The Green Hub</a>
 <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav">Menu</button>
 <nav class="links" aria-label="Main">
 <a href="#services">Services</a>
-<a href="#nurseries">Nurseries</a>
+<a href="#directory">Directory</a>
 <a href="#pros">For pros</a>
 <a href="#commercial">Commercial</a>
 <a href="#guides">Guides</a>
@@ -296,7 +301,7 @@ The Green Hub</a>
 <div class="cols">
 <div class="col"><h3>Homeowners</h3><p class="muted">Get estimates from licensed local pros, find plants in stock nearby and protect your home from wildfire.</p><a href="#estimate">Get free estimates</a></div>
 <div class="col"><h3>Landscapers and lawn care</h3><p class="muted">Booked jobs in your ZIPs, subcontract work on bigger contracts, member supply pricing and a front office that answers every call.</p><a href="#pros">See what pros get</a></div>
-<div class="col"><h3>Nurseries</h3><p class="muted">Get found by local buyers, promote sales and arrivals, and stock products your customers already ask for.</p><a href="#nurseries">List your nursery</a></div>
+<div class="col"><h3>Nurseries</h3><p class="muted">Get found by local buyers, promote sales and arrivals, and stock products your customers already ask for.</p><a href="#directory" data-dir="n">Browse listings</a></div>
 </div>
 </div>
 </div>
@@ -329,7 +334,7 @@ The Green Hub</a>
 <div class="sec">
 <div class="wrap">
 <div class="rows">
-<div><h3>Find it in stock, close to home</h3><p class="muted">Search local nurseries by plant, sale or event.</p><a href="#nurseries">Browse nurseries</a></div>
+<div><h3>Find a local business</h3><p class="muted">Search 890 nurseries, landscapers, tree services and irrigation pros by name, town or ZIP.</p><a href="#directory">Open the directory</a></div>
 <div><h3>Guides written for this valley</h3><p class="muted">Firewise planting, bare-root season and gardening in the Klamath Basin, from a horticulturist who works here.</p><a href="#guides">Read the guides</a></div>
 <div><h3>Seed library and plant days</h3><p class="muted">Supported by The Green Hub and run by Family’s Friend, an independent 501(c)(3).</p><a href="#guides">See upcoming events</a></div>
 </div>
@@ -384,22 +389,27 @@ The Green Hub</a>
 </div>
 </section>
 
-<!-- NURSERIES -->
-<section data-view="nurseries" hidden>
+<!-- DIRECTORY -->
+<section data-view="directory" hidden>
 <div class="sec">
 <div class="wrap">
-<div class="head"><h1>Nursery directory</h1><p class="lede">Find plants, soil and supplies in stock at local nurseries. Every listing links straight to the nursery.</p></div>
+<div class="head"><h1>Directory</h1><p class="lede">Nurseries, landscapers, tree services and irrigation pros in Jackson, Josephine and Klamath counties, drawn from public license and registration records.</p></div>
 <figure style="margin-bottom:36px"><img class="photo" src="img/nursery-rows.jpg" alt="Rows of young nursery stock planted across a rolling hillside below fir forest" width="1400" height="560"><figcaption>Field-grown nursery stock in Oregon. Photo: M.O. Stevens, CC BY-SA 3.0.</figcaption></figure>
-<div class="filters">
-<div class="field" style="flex:3 1 260px"><label for="n-q">Plant, product or nursery</label><input id="n-q" type="search" placeholder="Fruit trees, natives, potting soil"></div>
-<div class="field" style="flex:1 1 180px"><label for="n-town">Town</label><select id="n-town"><option value="">All towns</option><option>Grants Pass</option><option>Medford</option><option>Ashland</option><option>Klamath Falls</option><option>Chiloquin</option></select></div>
-</div>
-<div class="row" id="n-chips" role="group" aria-label="Filter by category" style="margin-bottom:24px"></div>
-<p class="muted small" id="n-count" aria-live="polite" style="margin-bottom:10px"></p>
-<div class="nlist" id="n-list"></div>
-<div class="row" style="margin-top:44px;justify-content:space-between;gap:20px 40px">
-<div class="stack" style="gap:6px;max-width:640px"><h3>Own a nursery?</h3><p class="muted">Listings are free. Featured nurseries appear on the guides and service pages for the plants they carry.</p></div>
-<a class="btn primary" href="#pros">Claim your listing</a>
+<form class="dfilters" id="d-form" novalidate>
+<div class="field" style="grid-column:1/-1"><label for="d-q">Name, city or ZIP code</label><input id="d-q" type="search" placeholder="Try Ashland or tree service" autocomplete="off"></div>
+<div class="field"><label for="d-county">County</label><select id="d-county"><option value="">All counties</option><option value="0">Jackson</option><option value="1">Josephine</option><option value="2">Klamath</option></select></div>
+<div class="field"><label for="d-svc">Service</label><select id="d-svc"><option value="">All services</option><option value="n">Nurseries and garden centers</option><option value="i">Interior plant care</option><option value="l">Landscapers and lawn maintenance</option><option value="t">Arborists and tree care</option><option value="h">Hardscape, patio and irrigation</option><option value="d">Planters, living walls and design</option></select></div>
+<div class="field"><label for="d-lic">License source</label><select id="d-lic"><option value="">Any source</option><option value="L">Landscape Contractors Board</option><option value="O">ODA nursery license</option></select></div>
+<div class="field"><label for="d-sort">Sort</label><select id="d-sort"><option value="contact">Contact details first</option><option value="name">Name A to Z</option></select></div>
+<label class="check" for="d-contact"><input type="checkbox" id="d-contact"> Has a phone number or website</label>
+</form>
+<p class="muted small" id="d-count" aria-live="polite" style="margin:22px 0 10px">Loading listings…</p>
+<div class="nlist" id="d-list"></div>
+<div class="row" style="margin-top:22px"><button class="btn ghost" type="button" id="d-more" hidden>Show more</button></div>
+<p class="muted small" style="max-width:70ch;margin-top:28px">Listings are a starting point for your own research. Confirm licensing, service area and availability with the business before you hire. A listing here is not an endorsement.</p>
+<div class="row" style="margin-top:44px;justify-content:space-between;gap:20px 40px;border-top:2px solid var(--head);padding-top:22px">
+<div class="stack" style="gap:6px;max-width:640px"><h3>Is this your business?</h3><p class="muted">Claim your listing to add photos, hours and services, or ask us to correct or remove it. Listings are free.</p></div>
+<a class="btn primary" href="#apply">Claim or correct a listing</a>
 </div>
 </div>
 </div>
@@ -506,23 +516,22 @@ The Green Hub</a>
 <h2 class="gh">Browse by category</h2>
 <div class="cols">
 <div class="col"><h3>Nurseries</h3><p class="muted">Plants, soil and supplies in stock near you.</p><a href="#nurseries">Search the directory</a></div>
-<div class="col"><h3>Interior plants</h3><p class="muted">Plant care, installs and upkeep for homes and offices.</p><a href="#estimate" data-svc="Interior plant care">Get estimates</a></div>
-<div class="col"><h3>Lawn and landscape</h3><p class="muted">Mowing, seasonal cleanups, design and installs.</p><a href="#estimate" data-svc="Landscape design and install">Get estimates</a></div>
-<div class="col"><h3>Arborists</h3><p class="muted">Pruning, removals, planting and tree health.</p><a href="#estimate" data-svc="Tree planting and removal">Get estimates</a></div>
-<div class="col"><h3>Hardscape and irrigation</h3><p class="muted">Patios, walls, drip systems and sprinkler repair.</p><a href="#estimate" data-svc="Irrigation and drought conversion">Get estimates</a></div>
-<div class="col"><h3>Living walls and design</h3><p class="muted">Garden design, planted walls and specialty installs.</p><a href="#estimate" data-svc="Garden design and living walls">Get estimates</a></div>
+<div class="col"><h3>Interior plants</h3><p class="muted">Plant care, installs and upkeep for homes and offices.</p><a href="#directory" data-dir="i">Browse listings</a></div>
+<div class="col"><h3>Lawn and landscape</h3><p class="muted">Mowing, seasonal cleanups, design and installs.</p><a href="#directory" data-dir="l">Browse listings</a></div>
+<div class="col"><h3>Arborists</h3><p class="muted">Pruning, removals, planting and tree health.</p><a href="#directory" data-dir="t">Browse listings</a></div>
+<div class="col"><h3>Hardscape and irrigation</h3><p class="muted">Patios, walls, drip systems and sprinkler repair.</p><a href="#directory" data-dir="h">Browse listings</a></div>
+<div class="col"><h3>Living walls and design</h3><p class="muted">Garden design, planted walls and specialty installs.</p><a href="#directory" data-dir="d">Browse listings</a></div>
 </div>
 
 <h2 class="gh">Browse by region</h2>
-<p class="muted" style="max-width:60ch;margin:-8px 0 16px">The Green Hub covers Southern Oregon. For the rest of the state, the Oregon Roots directory lists nurseries and pros in all 36 counties.</p>
+<p class="muted" style="max-width:60ch;margin:-8px 0 16px">The directory covers Southern Oregon today. The other regions are not listed here yet.</p>
 <ul class="regions">
-<li><a href="#services">Southern Oregon</a> <span class="muted small">covered here</span></li>
-<li><a href="https://oregon-roots.vodruteq.chatgpt.site/region/oregon-coast/" target="_blank" rel="noopener">Oregon Coast ↗</a></li>
-<li><a href="https://oregon-roots.vodruteq.chatgpt.site/region/portland-metro-columbia-river/" target="_blank" rel="noopener">Portland Metro and Columbia River ↗</a></li>
-<li><a href="https://oregon-roots.vodruteq.chatgpt.site/region/willamette-valley/" target="_blank" rel="noopener">Willamette Valley ↗</a></li>
-<li><a href="https://oregon-roots.vodruteq.chatgpt.site/region/central-oregon/" target="_blank" rel="noopener">Central Oregon ↗</a></li>
-<li><a href="https://oregon-roots.vodruteq.chatgpt.site/region/eastern-oregon/" target="_blank" rel="noopener">Eastern Oregon ↗</a></li>
-<li><a href="https://oregon-roots.vodruteq.chatgpt.site/oregon/" target="_blank" rel="noopener">All 36 counties ↗</a></li>
+<li><a href="#directory">Southern Oregon</a> <span class="muted small">Jackson, Josephine and Klamath counties</span></li>
+<li class="muted">Oregon Coast</li>
+<li class="muted">Portland Metro and Columbia River</li>
+<li class="muted">Willamette Valley</li>
+<li class="muted">Central Oregon</li>
+<li class="muted">Eastern Oregon</li>
 </ul>
 <div class="row" style="margin-top:56px;justify-content:space-between;gap:20px 40px;border-top:2px solid var(--head);padding-top:22px;align-items:flex-end">
 <div class="stack" style="gap:6px;max-width:520px"><h3>The seasonal letter</h3><p class="muted">Sales, plant arrivals and what to do in the yard this month. Once a month.</p></div>
@@ -556,7 +565,7 @@ The Green Hub</a>
 <div><h3>Choose plants and supplies</h3><p class="muted">Nurseries with drought-tolerant stock nearby.</p><a href="#nurseries">Search nurseries</a></div>
 <div><h3>Plan a landscape change</h3><p class="muted">Lawn removal, regrading and new planting.</p><a href="#estimate" data-svc="Landscape design and install">Get landscape estimates</a></div>
 </div>
-<p class="muted small">Adapted from the <a href="https://oregon-roots.vodruteq.chatgpt.site/guides/central-oregon-waterwise/" target="_blank" rel="noopener">Oregon Roots field guide ↗</a>. For plant lists, see <a href="https://extension.oregonstate.edu/catalog/em-9136-waterwise-gardening-central-oregon" target="_blank" rel="noopener">OSU Extension’s waterwise gardening guide ↗</a>.</p>
+<p class="muted small">Adapted from the Oregon Roots field guide. For plant lists, see <a href="https://extension.oregonstate.edu/catalog/em-9136-waterwise-gardening-central-oregon" target="_blank" rel="noopener">OSU Extension’s waterwise gardening guide ↗</a>.</p>
 </div>
 <aside><img class="photo" src="img/drip.jpg" alt="A drip irrigation line and coupling lying on dry garden soil" width="900" height="675"></aside>
 </div>
@@ -593,7 +602,7 @@ The Green Hub</a>
 <div class="wrap">
 <div class="fgrid">
 <div class="stack" style="gap:8px"><span style="font:700 26px var(--display);letter-spacing:.03em;text-transform:uppercase;color:#FFFFFF">The Green Hub</span><span>Making green for the green industry.</span><span>[PHONE] · [EMAIL]</span></div>
-<div class="stack" style="gap:6px"><span class="fhead">Find</span><a href="#services">Services</a><a href="#nurseries">Nursery directory</a><a href="#guides">Local guides</a></div>
+<div class="stack" style="gap:6px"><span class="fhead">Find</span><a href="#services">Services</a><a href="#directory">Business directory</a><a href="#guides">Local guides</a></div>
 <div class="stack" style="gap:6px"><span class="fhead">Pros</span><a href="#pros">Join the network</a><a href="#commercial">Commercial and government</a><a href="#apply">Apply</a></div>
 <div class="stack" style="gap:6px"><span class="fhead">Guides</span><a href="#waterwise">Waterwise yards</a><a href="#fire-plants">Fire-resistant planting</a><a href="#guides">Oregon resources</a></div>
 </div>
@@ -633,26 +642,44 @@ document.getElementById('svc-grid').innerHTML=SV2;
 document.getElementById('svc-grid-2').innerHTML=SV2;
 document.getElementById('w-svc').innerHTML=SVCS.map(function(s){return s.n;}).concat(["Interior plant care","Garden design and living walls"]).map(function(n){return '<option>'+n+'</option>';}).join('');
 
-var NURS=[
- {n:"Sample nursery A",t:"Medford",c:["Natives","Fruit trees","Soil"],s:"Bare-root fruit trees in stock",f:true},
- {n:"Sample nursery B",t:"Grants Pass",c:["Perennials","Shrubs","Houseplants"],s:"Spring sale this weekend",f:false},
- {n:"Sample nursery C",t:"Ashland",c:["Natives","Perennials","Soil"],s:"Pollinator plants arriving",f:false},
- {n:"Sample nursery D",t:"Klamath Falls",c:["Shrubs","Fruit trees"],s:"Cold-hardy shrubs in stock",f:false},
- {n:"Sample nursery E",t:"Chiloquin",c:["Natives","Soil"],s:"Native seed mixes available",f:false}
-];
-var CATS=["All","Natives","Fruit trees","Perennials","Shrubs","Houseplants","Soil"],cat="All";
-var chips=document.getElementById('n-chips');
-chips.innerHTML=CATS.map(function(c){return '<button type="button" class="chip" aria-pressed="'+(c==="All")+'">'+c+'</button>';}).join('');
-chips.addEventListener('click',function(e){var b=e.target.closest('.chip');if(!b)return;cat=b.textContent;chips.querySelectorAll('.chip').forEach(function(x){x.setAttribute('aria-pressed',x===b);});renderN();});
-function renderN(){
- var q=document.getElementById('n-q').value.trim().toLowerCase(),town=document.getElementById('n-town').value;
- var r=NURS.filter(function(x){return (!town||x.t===town)&&(cat==="All"||x.c.indexOf(cat)>-1)&&(!q||(x.n+' '+x.c.join(' ')+' '+x.s).toLowerCase().indexOf(q)>-1);});
- document.getElementById('n-count').textContent=r.length+(r.length===1?' nursery':' nurseries')+'. Sample listings until real partners are added.';
- document.getElementById('n-list').innerHTML=r.length?r.map(function(x){return '<div class="nrow"><div>'+(x.f?'<span class="label">Featured</span>':'')+'<h3>'+x.n+'</h3><span class="muted">'+x.t+'</span></div><div><span class="stock">'+x.s+'</span><br><span class="muted small">'+x.c.join(', ')+'</span></div><a href="#nurseries">Visit website</a></div>';}).join(''):'<div class="empty"><b>No nurseries match.</b><p class="muted">Try another town or category, or clear your search.</p></div>';
+/* directory: real listings from public license and registration records */
+var SVC={n:'Nursery',i:'Interior plants',l:'Lawn and landscape',t:'Arborist',h:'Hardscape and irrigation',d:'Living walls and design'};
+var DIR=null,dirShown=24,PAGE=24;
+function esc(t){return String(t).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+function $(id){return document.getElementById(id);}
+function dirFilter(){
+ var q=$('d-q').value.trim().toLowerCase(),co=$('d-county').value,sv=$('d-svc').value,li=$('d-lic').value,ct=$('d-contact').checked;
+ var words=q?q.split(/\s+/):[];
+ var r=DIR.b.filter(function(x){
+  if(co!==''&&x[2]!==+co)return false;
+  if(sv&&x[3].indexOf(sv)<0)return false;
+  if(li&&x[7].indexOf(li)<0)return false;
+  if(ct&&!x[4]&&!x[5])return false;
+  if(words.length){var hay=(x[0]+' '+x[1]+' '+x[6]+' '+DIR.counties[x[2]]+' '+x[3].split('').map(function(c){return SVC[c];}).join(' ')).toLowerCase();for(var i=0;i<words.length;i++)if(hay.indexOf(words[i])<0)return false;}
+  return true;});
+ if($('d-sort').value==='contact')r=r.slice().sort(function(a,b){var ca=(a[4]?2:0)+(a[5]?1:0),cb=(b[4]?2:0)+(b[5]?1:0);return cb-ca;});
+ return r;
 }
-document.getElementById('n-q').addEventListener('input',renderN);
-document.getElementById('n-town').addEventListener('change',renderN);
-renderN();
+function renderDir(){
+ if(!DIR)return;
+ var r=dirFilter(),n=Math.min(dirShown,r.length);
+ $('d-count').textContent=r.length?(r.length.toLocaleString()+(r.length===1?' business':' businesses')+', showing 1 to '+n):'No businesses match.';
+ $('d-list').innerHTML=r.length?r.slice(0,n).map(function(x){
+  var host='';if(x[5]){try{host=new URL(x[5]).hostname.replace(/^www\./,'');}catch(e){}}
+  return '<div class="nrow"><div><h3>'+esc(x[0])+'</h3><span class="muted">'+esc(x[1])+', '+DIR.counties[x[2]]+' County'+(x[6]?' · '+esc(x[6]):'')+'</span></div>'
+   +'<div><span class="stock">'+x[3].split('').map(function(c){return SVC[c];}).join(', ')+'</span>'+(DIR.evidence[x[8]]?'<br><span class="muted small">'+esc(DIR.evidence[x[8]])+'</span>':'')+'</div>'
+   +'<div class="contact">'+(x[4]?'<span class="phone">'+esc(x[4])+'</span>':'')+(host?'<a href="'+esc(x[5])+'" target="_blank" rel="noopener nofollow">'+esc(host)+' ↗</a>':'')+(!x[4]&&!host?'<span class="muted small">No contact details on record</span>':'')+'</div></div>';
+ }).join(''):'<div class="empty"><b>No businesses match.</b><p class="muted">Try another county or service, or clear your search.</p></div>';
+ var more=$('d-more');more.hidden=n>=r.length;more.textContent='Show '+Math.min(PAGE,r.length-n)+' more';
+}
+function dirChanged(){dirShown=PAGE;renderDir();}
+['d-q'].forEach(function(id){$(id).addEventListener('input',dirChanged);});
+['d-county','d-svc','d-lic','d-sort','d-contact'].forEach(function(id){$(id).addEventListener('change',dirChanged);});
+$('d-form').addEventListener('submit',function(e){e.preventDefault();dirChanged();});
+$('d-more').addEventListener('click',function(){dirShown+=PAGE;renderDir();});
+function setDirService(c){$('d-svc').value=c;$('d-q').value='';dirChanged();}
+document.addEventListener('click',function(e){var a=e.target.closest('[data-dir]');if(a)setDirService(a.getAttribute('data-dir'));});
+fetch('data/directory.json').then(function(r){if(!r.ok)throw new Error(r.status);return r.json();}).then(function(d){DIR=d;renderDir();}).catch(function(){$('d-count').textContent='The listings could not be loaded. Reload the page to try again.';});
 
 var GUIDES=[
  {k:"Water",t:"Waterwise yards",d:"Check your irrigation, group plants by thirst and know what to hand off.",h:"#waterwise",img:"drip.jpg",alt:"A drip irrigation line and coupling lying on dry garden soil"},
@@ -682,7 +709,7 @@ document.getElementById('news').addEventListener('submit',function(e){e.preventD
 
 /* routing */
 var VIEWS=[].slice.call(document.querySelectorAll('[data-view]'));
-var ALIAS={estimate:'home',apply:'pros'};
+var ALIAS={estimate:'home',apply:'pros',nurseries:'directory'};
 var nav=document.getElementById('nav'),menu=document.getElementById('menuBtn');
 menu.onclick=function(){var o=nav.classList.toggle('open');menu.setAttribute('aria-expanded',o);};
 function route(){
@@ -692,9 +719,10 @@ function route(){
  document.querySelectorAll('.links a').forEach(function(a){if(a.getAttribute('href')==='#'+v)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});
  nav.classList.remove('open');menu.setAttribute('aria-expanded','false');
  if(h==='estimate'){var w=document.getElementById('estimate-widget');w.scrollIntoView({block:'center'});var s=document.getElementById('w-zip');setTimeout(function(){s.focus({preventScroll:true});},50);}
+ else if(h==='nurseries'){setDirService('n');window.scrollTo(0,0);}
  else if(h==='apply'){document.getElementById('apply').scrollIntoView({block:'start'});}
  else window.scrollTo(0,0);
- var titles={home:'The Green Hub',services:'Services | The Green Hub',firewise:'Firewise landscaping | The Green Hub',nurseries:'Nursery directory | The Green Hub',pros:'For pros | The Green Hub',commercial:'Commercial and government | The Green Hub',guides:'Local guides | The Green Hub',waterwise:'Waterwise yards | The Green Hub','fire-plants':'Fire-resistant planting | The Green Hub'};
+ var titles={home:'The Green Hub',services:'Services | The Green Hub',firewise:'Firewise landscaping | The Green Hub',directory:'Directory | The Green Hub',pros:'For pros | The Green Hub',commercial:'Commercial and government | The Green Hub',guides:'Local guides | The Green Hub',waterwise:'Waterwise yards | The Green Hub','fire-plants':'Fire-resistant planting | The Green Hub'};
  document.title=titles[v]||titles.home;
 }
 document.addEventListener('click',function(e){var a=e.target.closest('[data-svc]');if(a){var sel=document.getElementById('w-svc');sel.value=a.getAttribute('data-svc');if(a.getAttribute('href')===location.hash){e.preventDefault();route();}}});
