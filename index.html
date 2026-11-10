@@ -1,0 +1,707 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta property="og:title" content="The Green Hub">
+<meta property="og:description" content="Find licensed landscapers, local nurseries and firewise pros from Grants Pass to Chiloquin.">
+<meta property="og:image" content="img/hero.jpg">
+<title>The Green Hub | Southern Oregon landscapers, nurseries and firewise pros</title>
+<meta name="description" content="Find licensed landscapers, local nurseries and firewise pros from Grants Pass to Chiloquin. You choose who contacts you.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap">
+<style>
+/* Layout: a regional trade directory led by documentary photos. Plain ruled columns and lists, square corners, boxes only for forms and prices. */
+:root{
+  --paper:#FAFAF7; --panel:#FFFFFF; --ink:#18201B; --muted:#55615A; --rule:#CFD5CC;
+  --green:#1E4631; --on-green:#FFFFFF; --head:#16301F; --link:#1E5A3A;
+  --gold:#E0A72E; --on-gold:#1B1A12; --band:#12261B; --band-ink:#E7EEE8; --band-muted:#B3C4B8; --band-rule:#31503E;
+  --err:#A5381A; --focus:#B8741A; --green-hover:#163726; --btn-line:#AEB7AD;
+  --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --body:"Source Sans 3","Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --paper:#101612; --panel:#182019; --ink:#E7ECE6; --muted:#A7B4AA; --rule:#2F3B32;
+    --green:#2F6F4C; --on-green:#FFFFFF; --head:#DCE9DE; --link:#8FCBA6;
+    --gold:#E3B14A; --on-gold:#1B1A12; --band:#0B140F; --band-ink:#E7EEE8; --band-muted:#B3C4B8; --band-rule:#2B4435;
+    --err:#F09A7E; --focus:#E3B14A; --green-hover:#3A8259; --btn-line:#4A5A4E;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --paper:#101612; --panel:#182019; --ink:#E7ECE6; --muted:#A7B4AA; --rule:#2F3B32;
+  --green:#2F6F4C; --on-green:#FFFFFF; --head:#DCE9DE; --link:#8FCBA6;
+  --gold:#E3B14A; --on-gold:#1B1A12; --band:#0B140F; --band-ink:#E7EEE8; --band-muted:#B3C4B8; --band-rule:#2B4435;
+  --err:#F09A7E; --focus:#E3B14A; --green-hover:#3A8259; --btn-line:#4A5A4E;
+}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 80px)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.55}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--panel)}
+img{display:block;max-width:100%}
+h1,h2,h3{font-family:var(--display);font-weight:600;color:var(--head);margin:0;text-wrap:balance;line-height:1.05}
+h1{font-size:clamp(44px,6.4vw,76px);letter-spacing:-.005em}
+h2{font-size:clamp(32px,4vw,44px)}
+h3{font-size:26px;line-height:1.15}
+p{margin:0}
+a{color:var(--link);text-underline-offset:3px}
+a:hover{color:var(--head)}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.sec{padding-block:72px}
+.lede{font-size:21px;color:var(--muted);max-width:60ch}
+.muted{color:var(--muted)}
+.small{font-size:15px}
+.stack{display:flex;flex-direction:column;gap:14px}
+.head{display:flex;flex-direction:column;gap:10px;max-width:760px;margin-bottom:36px}
+.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.label{font:600 14px var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 20px;border-radius:6px;font:600 16px/1 var(--body);text-decoration:none;cursor:pointer;border:1px solid transparent;transition:background-color .12s,border-color .12s}
+.btn.primary{background:var(--green);color:var(--on-green);border-color:var(--green)}
+.btn.primary:hover{background:var(--green-hover);border-color:var(--green-hover);color:var(--on-green)}
+.btn.ghost{background:var(--panel);color:var(--ink);border-color:var(--btn-line)}
+.btn.ghost:hover{border-color:var(--ink);color:var(--ink)}
+.btn:active{transform:translateY(1px)}
+.btn:disabled{opacity:.55;cursor:default}
+@media (prefers-reduced-motion:reduce){.btn{transition:none}.btn:active{transform:none}}
+label{font-size:15px;font-weight:600}
+input,select{min-height:46px;padding:0 12px;border:1px solid var(--btn-line);border-radius:6px;font:17px var(--body);background:var(--panel);color:var(--ink);width:100%}
+.field{display:flex;flex-direction:column;gap:5px;min-width:0}
+.err{color:var(--err);font-size:15px;font-weight:600}
+figure{margin:0}
+figcaption{font-size:14px;color:var(--muted);padding-top:8px}
+.photo{width:100%;height:auto;border-radius:2px;background:var(--rule)}
+
+/* header */
+.site-header{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--panel);border-bottom:1px solid var(--rule)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:68px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--head);font:700 25px var(--display);letter-spacing:.03em;text-transform:uppercase}
+.links{display:flex;gap:4px 24px;flex-wrap:wrap;align-items:center}
+.links a{color:var(--ink);text-decoration:none;font-weight:600;font-size:17px;padding:8px 0;border-bottom:3px solid transparent}
+.links a:hover{border-bottom-color:var(--rule)}
+.links a[aria-current="page"]{border-bottom-color:var(--gold)}
+.menu-btn{display:none;min-height:44px;border:1px solid var(--btn-line);border-radius:6px;background:var(--panel);color:var(--ink);font:600 16px var(--body);padding:0 14px}
+.nav-ctas{display:flex;gap:10px}
+.nav-ctas .btn{min-height:44px;padding:0 16px}
+@media (max-width:1020px){
+  .menu-btn{display:inline-flex;align-items:center}
+  .links,.nav-ctas{display:none}
+  .nav.open{flex-wrap:wrap;padding-bottom:16px}
+  .nav.open .links{display:flex;flex-direction:column;align-items:flex-start;width:100%;order:3}
+  .nav.open .nav-ctas{display:flex;flex-wrap:wrap;width:100%;order:4}
+}
+
+/* hero: the photo is the background in both themes, so its text colors are fixed */
+.hero{position:relative;background:#16241C;color:#FFFFFF;overflow:hidden}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 60%}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(9,18,13,.78) 0%,rgba(9,18,13,.5) 45%,rgba(9,18,13,.2) 100%)}
+.hero-inner{position:relative;z-index:2;display:flex;flex-wrap:wrap;gap:40px 56px;align-items:center;padding-block:64px 40px}
+.hero-copy{flex:999 1 440px;display:flex;flex-direction:column;gap:20px;min-width:0}
+.hero h1{color:#FFFFFF}
+.hero-copy p{font-size:21px;color:#E6ECE7;max-width:52ch}
+.towns{font:600 15px var(--body);letter-spacing:.08em;text-transform:uppercase;color:#F0C766}
+.hero-cap{position:relative;z-index:2;font-size:14px;color:#D5DDD7;padding-bottom:14px}
+.widget{flex:1 1 360px;max-width:440px;background:var(--panel);color:var(--ink);border-radius:4px;padding:26px;min-width:0}
+.widget h2{font-size:30px}
+.steps{display:flex;gap:6px;margin-bottom:4px}
+.steps span{flex:1;height:4px;background:var(--rule)}
+.steps span.on{background:var(--gold)}
+.pick{display:flex;gap:12px;align-items:flex-start;padding:12px;border:1px solid var(--rule);border-radius:3px;cursor:pointer}
+.pick input{width:22px;min-height:22px;height:22px;margin-top:3px;accent-color:#2F6F4C;flex-shrink:0}
+.pick b{display:block}
+
+/* ruled columns instead of cards */
+.cols{display:grid;gap:36px 40px;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}
+.col{display:flex;flex-direction:column;gap:10px;border-top:2px solid var(--head);padding-top:16px;min-width:0}
+.col a{font-weight:600}
+
+/* photo tiles */
+.tiles{display:grid;gap:36px 28px;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
+.tile{display:flex;flex-direction:column;gap:12px;text-decoration:none;color:var(--ink);min-width:0}
+.tile img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:2px;background:var(--rule)}
+.tile .t{font:600 26px/1.15 var(--display);color:var(--head)}
+.tile:hover .t{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
+.tile:hover{color:var(--ink)}
+#g-list{grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))}
+.gh{margin:56px 0 22px}
+.head + .gh{margin-top:0}
+.rows h3{font-size:24px}
+.regions{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px 28px;font-weight:600}
+.steps-list{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:22px;counter-reset:st}
+.steps-list li{display:grid;grid-template-columns:44px minmax(0,1fr);gap:4px 12px}
+.steps-list li::before{counter-increment:st;content:counter(st);font:700 44px/1 var(--display);color:var(--link);grid-row:span 2}
+.steps-list h3,.steps-list p{grid-column:2}
+.tile .d{color:var(--muted);font-size:17px}
+
+.how{list-style:none;margin:0;padding:0;display:grid;gap:32px 40px;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}
+.how li{display:flex;flex-direction:column;gap:6px}
+.how .n{font:700 64px/1 var(--display);color:var(--green)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .how .n{color:var(--link)}}
+:root[data-theme="dark"] .how .n{color:var(--link)}
+
+/* dark band */
+.band{background:var(--band);color:var(--band-ink)}
+.band h1,.band h2,.band h3{color:#FFFFFF}
+.band .lede,.band .muted{color:var(--band-muted)}
+.band .col{border-top-color:var(--gold)}
+.band .label{color:#F0C766}
+.band a{color:#F0C766}
+.band .btn.primary{background:#FFFFFF;border-color:#FFFFFF;color:#12261B}
+.band .btn.primary:hover{background:#E4EBE5;border-color:#E4EBE5;color:#12261B}
+.band .tier .btn.primary{background:var(--green);border-color:var(--green);color:var(--on-green)}
+.band .tier .btn.primary:hover{background:var(--green-hover);border-color:var(--green-hover);color:var(--on-green)}
+.promise{display:flex;flex-wrap:wrap;gap:24px 48px;align-items:center;justify-content:space-between}
+.promise p{color:var(--band-muted);max-width:58ch;font-size:19px}
+
+/* plain link rows */
+.rows{border-top:1px solid var(--rule)}
+@media (min-width:761px){.rows > * > a{justify-self:end;text-align:right}}
+.rows > *{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr) minmax(0,.8fr);gap:8px 32px;align-items:baseline;padding:22px 0;border-bottom:1px solid var(--rule)}
+@media (max-width:760px){.rows > *{grid-template-columns:minmax(0,1fr)}}
+
+/* pricing */
+.tiers{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr))}
+.tier{background:var(--panel);color:var(--ink);border:1px solid var(--rule);border-radius:3px;padding:26px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.band .tier h3{color:var(--head)}
+.tier.best{border:3px solid var(--gold)}
+.tier .label{color:var(--muted)}
+.price{font:600 34px/1.1 var(--display);color:var(--head)}
+.tier ul{margin:0;padding-left:20px;color:var(--muted)}
+.tier .btn{margin-top:auto;align-self:flex-start}
+
+/* directory */
+.filters{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;margin-bottom:20px}
+.chip{min-height:40px;padding:0 14px;border-radius:6px;border:1px solid var(--btn-line);background:transparent;color:var(--ink);font:600 15px var(--body);cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--green);color:var(--on-green);border-color:var(--green)}
+.nlist{border-top:2px solid var(--head)}
+.nrow{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1.4fr) auto;gap:6px 28px;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--rule)}
+.nrow h3{font-size:24px}
+.nrow .stock{font-weight:600;color:var(--link)}
+@media (max-width:760px){.nrow{grid-template-columns:minmax(0,1fr)}}
+.empty{padding:32px 0;border-bottom:1px solid var(--rule)}
+.formbox{background:var(--panel);border:1px solid var(--rule);border-radius:3px;padding:26px;min-width:0}
+.fgridf{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))}
+
+/* article */
+.split{display:flex;flex-wrap:wrap;gap:40px 56px;align-items:flex-start}
+.split > .main{flex:999 1 460px;min-width:0}
+.split > aside{flex:1 1 320px;min-width:0}
+.article{max-width:68ch}
+.article h2{font-size:32px;margin-top:22px}
+.article ul{margin:0;padding-left:22px}
+details{border-bottom:1px solid var(--rule);padding:14px 0}
+summary{font-size:19px;font-weight:600;cursor:pointer}
+details p{margin-top:8px;color:var(--muted)}
+.crumbs{font-size:15px;color:var(--muted);margin-bottom:14px}
+dl.facts{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 18px;font-size:17px}
+dl.facts dt{font-weight:600}
+dl.facts dd{margin:0;color:var(--muted)}
+
+/* footer */
+footer{background:var(--band);color:var(--band-muted);font-size:16px;padding-block:56px 36px}
+footer a{color:var(--band-muted)}
+footer a:hover{color:#FFFFFF}
+.fgrid{display:grid;gap:32px;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr))}
+.fhead{font:600 14px var(--body);letter-spacing:.08em;text-transform:uppercase;color:#F0C766;margin-bottom:4px}
+.legal{border-top:1px solid var(--band-rule);margin-top:36px;padding-top:20px;font-size:14px;color:var(--band-muted)}
+footer details{border-bottom:0;border-top:1px solid var(--band-rule);margin-top:36px;padding:16px 0 0}
+footer summary{font-size:15px}
+footer details ul{margin:10px 0 0;padding-left:18px;font-size:14px;columns:2 320px;column-gap:40px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.sr:focus{position:fixed;left:12px;top:12px;width:auto;height:auto;clip:auto;z-index:100;background:var(--panel);padding:10px 14px}
+</style>
+</head>
+<body>
+
+<a href="#main" class="sr">Skip to content</a>
+
+<header class="site-header">
+<div class="wrap nav" id="nav">
+<a class="brand" href="#home" aria-label="The Green Hub home">
+<svg width="34" height="34" viewBox="0 0 150 150" aria-hidden="true"><circle cx="75" cy="75" r="73" fill="#1E4631"/><g stroke="#FFFFFF" stroke-width="7" stroke-linecap="round"><path d="M75 46 V22"/><path d="M100 60.5 L121 48.5"/><path d="M100 89.5 L121 101.5"/><path d="M75 104 V128"/><path d="M50 89.5 L29 101.5"/><path d="M50 60.5 L29 48.5"/></g><circle cx="75" cy="75" r="29" fill="#FFFFFF"/><path d="M63 88 C63 72 71 62 88 62 C88 78 80 88 63 88 Z" fill="#1E4631"/></svg>
+The Green Hub</a>
+<button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav">Menu</button>
+<nav class="links" aria-label="Main">
+<a href="#services">Services</a>
+<a href="#nurseries">Nurseries</a>
+<a href="#pros">For pros</a>
+<a href="#commercial">Commercial</a>
+<a href="#guides">Guides</a>
+</nav>
+<div class="nav-ctas">
+<a class="btn ghost" href="#pros">Join the network</a>
+<a class="btn primary" href="#estimate">Get free estimates</a>
+</div>
+</div>
+</header>
+
+<main id="main">
+
+<!-- HOME -->
+<section data-view="home">
+<div class="hero">
+<img class="hero-img" src="img/hero.jpg" alt="Mount McLoughlin rising over dry golden grass and oaks, seen from Lower Table Rock">
+<div class="wrap hero-inner">
+<div class="hero-copy">
+<span class="towns">Grants Pass · Medford · Ashland · Klamath Falls · Chiloquin</span>
+<h1>Southern Oregon’s green industry, in one place.</h1>
+<p>Find licensed landscapers, firewise crews and local nurseries. You choose who contacts you. Your request is never sold to a crowd.</p>
+</div>
+<div class="widget" id="estimate-widget" aria-labelledby="w-title">
+<div class="steps" aria-hidden="true"><span class="on" id="st1"></span><span id="st2"></span><span id="st3"></span></div>
+<form id="w1" class="stack" novalidate>
+<h2 id="w-title">Get free estimates</h2>
+<p class="muted small">Step 1 of 3. Tell us about the job.</p>
+<div class="field"><label for="w-svc">What do you need?</label>
+<select id="w-svc"></select></div>
+<div class="field"><label for="w-zip">ZIP code</label>
+<input id="w-zip" inputmode="numeric" autocomplete="postal-code" maxlength="5" placeholder="97501"></div>
+<div class="field"><label for="w-when">When?</label>
+<select id="w-when"><option>As soon as possible</option><option>In the next month</option><option>Just planning</option></select></div>
+<p class="err" id="w1-err" role="alert" hidden>Enter a 5-digit ZIP code.</p>
+<button class="btn primary" type="submit">See available pros</button>
+<p class="muted small">Free, no obligation. Prefer to talk? Call [PHONE].</p>
+</form>
+<form id="w2" class="stack" novalidate hidden>
+<h2>Choose who can contact you</h2>
+<p class="muted small">Step 2 of 3. Pick one to three pros. Only they see your request.</p>
+<div class="stack" id="w-pros" style="gap:10px"></div>
+<p class="err" id="w2-err" role="alert" hidden>Pick at least one pro.</p>
+<div class="row"><button class="btn ghost" type="button" id="w2-back">Back</button><button class="btn primary" type="submit">Continue</button></div>
+</form>
+<form id="w3" class="stack" novalidate hidden>
+<h2>How should they reach you?</h2>
+<p class="muted small">Step 3 of 3.</p>
+<div class="field"><label for="w-name">Name</label><input id="w-name" autocomplete="name"></div>
+<div class="field"><label for="w-phone">Phone</label><input id="w-phone" type="tel" autocomplete="tel" placeholder="(541) 555-0100"></div>
+<p class="err" id="w3-err" role="alert" hidden>Add your name and a phone number.</p>
+<div class="row"><button class="btn ghost" type="button" id="w3-back">Back</button><button class="btn primary" type="submit">Send request</button></div>
+</form>
+<div id="w4" class="stack" hidden>
+<h2>Request sent</h2>
+<p id="w4-msg"></p>
+<button class="btn ghost" type="button" id="w-reset" style="align-self:flex-start">Start a new request</button>
+</div>
+</div>
+</div>
+<p class="wrap hero-cap">Mt. McLoughlin from Lower Table Rock, Jackson County. Photo: Bureau of Land Management.</p>
+</div>
+
+<div class="sec">
+<div class="wrap">
+<div class="cols">
+<div class="col"><h3>Homeowners</h3><p class="muted">Get estimates from licensed local pros, find plants in stock nearby and protect your home from wildfire.</p><a href="#estimate">Get free estimates</a></div>
+<div class="col"><h3>Landscapers and lawn care</h3><p class="muted">Booked jobs in your ZIPs, subcontract work on bigger contracts, member supply pricing and a front office that answers every call.</p><a href="#pros">See what pros get</a></div>
+<div class="col"><h3>Nurseries</h3><p class="muted">Get found by local buyers, promote sales and arrivals, and stock products your customers already ask for.</p><a href="#nurseries">List your nursery</a></div>
+</div>
+</div>
+</div>
+
+<div class="sec" style="padding-top:0">
+<div class="wrap">
+<div class="head"><h2>What needs doing?</h2><p class="lede">Each service has a local guide and pros who cover Jackson, Josephine and Klamath counties.</p></div>
+<div class="tiles" id="svc-grid"></div>
+</div>
+</div>
+
+<div class="sec" style="padding-top:0">
+<div class="wrap">
+<div class="head"><h2>How it works</h2></div>
+<ol class="how">
+<li><span class="n" aria-hidden="true">1</span><h3>Tell us the job</h3><p class="muted">Two minutes online, or call and talk to a person.</p></li>
+<li><span class="n" aria-hidden="true">2</span><h3>Choose who contacts you</h3><p class="muted">See licensed, insured pros who cover your ZIP. Pick up to three.</p></li>
+<li><span class="n" aria-hidden="true">3</span><h3>Hire directly</h3><p class="muted">Compare quotes and hire the pro you like. You pay them, not us.</p></li>
+</ol>
+</div>
+</div>
+
+<div class="band sec">
+<div class="wrap promise">
+<div class="stack" style="gap:10px"><h2>Your request goes to the pros you pick. That’s it.</h2><p>No bidding wars, no ten phone calls by dinnertime. Pros pay only when you book an appointment with them, so they show up ready to work.</p></div>
+<a class="btn primary" href="#estimate">Get free estimates</a>
+</div>
+</div>
+
+<div class="sec">
+<div class="wrap">
+<div class="rows">
+<div><h3>Find it in stock, close to home</h3><p class="muted">Search local nurseries by plant, sale or event.</p><a href="#nurseries">Browse nurseries</a></div>
+<div><h3>Guides written for this valley</h3><p class="muted">Firewise planting, bare-root season and gardening in the Klamath Basin, from a horticulturist who works here.</p><a href="#guides">Read the guides</a></div>
+<div><h3>Seed library and plant days</h3><p class="muted">Supported by The Green Hub and run by Family’s Friend, an independent 501(c)(3).</p><a href="#guides">See upcoming events</a></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- SERVICES -->
+<section data-view="services" hidden>
+<div class="sec">
+<div class="wrap">
+<div class="head"><h1>Services</h1><p class="lede">Every service, matched to licensed and insured pros who cover your ZIP code.</p></div>
+<div class="tiles" id="svc-grid-2"></div>
+</div>
+</div>
+</section>
+
+<!-- FIREWISE -->
+<section data-view="firewise" hidden>
+<div class="sec">
+<div class="wrap">
+<p class="crumbs"><a href="#services">Services</a> / Firewise and defensible space</p>
+<div class="split">
+<div class="main article stack" style="gap:16px">
+<h1>Firewise landscaping in Southern Oregon</h1>
+<p class="lede">Defensible space is the area around your home where plants, fuels and layout slow a wildfire down. Local crews can plan it, clear it and replant it so it still looks like a yard.</p>
+<div class="row"><a class="btn primary" href="#estimate" data-svc="Firewise and defensible space">Get firewise estimates</a><a class="btn ghost" href="#fire-plants">Read the plant guide</a></div>
+<h2>The three zones around your home</h2>
+<div class="cols" style="gap:24px 28px">
+<div class="col"><span class="label">0 to 5 feet</span><h3>Immediate zone</h3><p class="muted">Hard surfaces, gravel and well-watered low plants. Nothing that burns against the walls.</p></div>
+<div class="col"><span class="label">5 to 30 feet</span><h3>Intermediate zone</h3><p class="muted">Spaced plantings, limbed-up trees and breaks between shrub groups.</p></div>
+<div class="col"><span class="label">30 to 100 feet</span><h3>Extended zone</h3><p class="muted">Thinned trees, cleared ladder fuels and managed grass.</p></div>
+</div>
+<h2>What crews typically do</h2>
+<ul><li>Site assessment and a zone-by-zone plan</li><li>Brush and ladder-fuel removal, chipping and haul-away</li><li>Replanting with fire-resistant, water-wise plants</li><li>Gravel borders, hardscape and irrigation updates</li></ul>
+<h2>What affects the price</h2>
+<p>Lot size and slope, how much material has to be removed, access for equipment, and whether you want replanting or clearing only. Your pros quote on site, for free.</p>
+<h2>Questions</h2>
+<div>
+<details><summary>Do I need a permit?</summary><p>Most clearing doesn’t, but tree removal near streams or in some HOAs can. Your pro will tell you before work starts.</p></details>
+<details><summary>Can it still look good?</summary><p>Yes. Firewise yards use spacing and plant choice, not bare dirt. Ask your pro for a planting plan with the quote.</p></details>
+</div>
+</div>
+<aside class="stack" style="position:sticky;top:96px;gap:18px">
+<figure><img class="photo" src="img/firewise.jpg" alt="Cut brush stacked in piles on a cleared hillside above a valley of homes" width="1200" height="800"><figcaption>Fuels treatment near homes in the Jacksonville Woodlands. Photo: Bureau of Land Management.</figcaption></figure>
+<h3>Firewise pros near you</h3>
+<p class="muted">Licensed, insured and checked by us. You choose who contacts you.</p>
+<a class="btn primary" href="#estimate" data-svc="Firewise and defensible space" style="align-self:flex-start">Get free estimates</a>
+</aside>
+</div>
+</div>
+</div>
+</section>
+
+<!-- NURSERIES -->
+<section data-view="nurseries" hidden>
+<div class="sec">
+<div class="wrap">
+<div class="head"><h1>Nursery directory</h1><p class="lede">Find plants, soil and supplies in stock at local nurseries. Every listing links straight to the nursery.</p></div>
+<figure style="margin-bottom:36px"><img class="photo" src="img/nursery-rows.jpg" alt="Rows of young nursery stock planted across a rolling hillside below fir forest" width="1400" height="560"><figcaption>Field-grown nursery stock in Oregon. Photo: M.O. Stevens, CC BY-SA 3.0.</figcaption></figure>
+<div class="filters">
+<div class="field" style="flex:3 1 260px"><label for="n-q">Plant, product or nursery</label><input id="n-q" type="search" placeholder="Fruit trees, natives, potting soil"></div>
+<div class="field" style="flex:1 1 180px"><label for="n-town">Town</label><select id="n-town"><option value="">All towns</option><option>Grants Pass</option><option>Medford</option><option>Ashland</option><option>Klamath Falls</option><option>Chiloquin</option></select></div>
+</div>
+<div class="row" id="n-chips" role="group" aria-label="Filter by category" style="margin-bottom:24px"></div>
+<p class="muted small" id="n-count" aria-live="polite" style="margin-bottom:10px"></p>
+<div class="nlist" id="n-list"></div>
+<div class="row" style="margin-top:44px;justify-content:space-between;gap:20px 40px">
+<div class="stack" style="gap:6px;max-width:640px"><h3>Own a nursery?</h3><p class="muted">Listings are free. Featured nurseries appear on the guides and service pages for the plants they carry.</p></div>
+<a class="btn primary" href="#pros">Claim your listing</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- PROS -->
+<section data-view="pros" hidden>
+<div class="band sec">
+<div class="wrap">
+<div class="split" style="align-items:center;margin-bottom:56px">
+<div class="main stack" style="gap:16px"><h1>Everything a green-industry business runs on.</h1><p class="lede">Join once. Get the work, the supplies and the front office from one network built for Southern Oregon crews and nurseries.</p><a class="btn primary" href="#apply" style="align-self:flex-start">Apply to join</a></div>
+<aside><img class="photo" src="img/tree.jpg" alt="An arborist in a helmet and climbing harness pruning high in a conifer" width="900" height="675"></aside>
+</div>
+<div class="cols">
+<div class="col"><span class="label">The work</span><h3>Booked jobs, not shared leads</h3><p class="muted">Homeowners choose you by name. Your leads are never sold to five other crews.</p></div>
+<div class="col"><span class="label">The contracts</span><h3>Subcontract work</h3><p class="muted">Grounds, landscaping and revegetation jobs on federal and commercial contracts.</p></div>
+<div class="col"><span class="label">The supply</span><h3>Soil, mulch and lumber</h3><p class="muted">Member pricing on premium soil, wholesale for nurseries and local wood products.</p></div>
+<div class="col"><span class="label">The front office</span><h3>Never miss a call</h3><p class="muted">An AI receptionist for busy season, plus a website and Google profile that bring in work.</p></div>
+</div>
+<h2 style="margin:64px 0 22px">Membership</h2>
+<div class="tiers">
+<div class="tier"><h3>Listed</h3><span class="price">Free</span><ul><li>Directory profile and reviews</li><li>Sale and event posts</li></ul><a class="btn ghost" href="#apply">Get listed</a></div>
+<div class="tier best"><span class="label">Most members pick this</span><h3>Network member</h3><span class="price">[PRICE] per booked appointment</span><ul><li>Homeowner requests in your ZIPs</li><li>Pay only when an appointment is booked</li><li>Subcontract invites and member supply pricing</li></ul><a class="btn primary" href="#apply">Become a member</a></div>
+<div class="tier"><h3>Full front door</h3><span class="price">[PRICE] per month</span><ul><li>Everything in Network member</li><li>AI receptionist for every missed call</li><li>Website and Google profile care</li></ul><a class="btn ghost" href="#apply">Talk to us</a></div>
+</div>
+</div>
+</div>
+<div class="sec" id="apply">
+<div class="wrap" style="max-width:800px">
+<div class="head"><h2>Apply to join</h2><p class="lede">We confirm your Oregon license and insurance, then you’re live. Founding member spots are open.</p></div>
+<form id="apply-form" class="formbox stack" novalidate>
+<div class="fgridf">
+<div class="field"><label for="a-name">Your name</label><input id="a-name" autocomplete="name"></div>
+<div class="field"><label for="a-biz">Business name</label><input id="a-biz" autocomplete="organization"></div>
+<div class="field"><label for="a-type">Business type</label><select id="a-type"><option>Landscaping</option><option>Lawn care</option><option>Tree service</option><option>Irrigation</option><option>Nursery</option><option>Other</option></select></div>
+<div class="field"><label for="a-lic">Oregon license number</label><input id="a-lic" placeholder="LCB or CCB number"></div>
+<div class="field"><label for="a-phone">Phone</label><input id="a-phone" type="tel" autocomplete="tel"></div>
+<div class="field"><label for="a-zips">ZIP codes you serve</label><input id="a-zips" placeholder="97501, 97502, 97504"></div>
+</div>
+<p class="err" id="a-err" role="alert" hidden>Add your name, business name and phone.</p>
+<button class="btn primary" type="submit" style="align-self:flex-start">Send application</button>
+<p id="a-ok" hidden><b>Application sent.</b> We’ll call you to verify your license and set up your profile.</p>
+</form>
+</div>
+</div>
+</section>
+
+<!-- COMMERCIAL -->
+<section data-view="commercial" hidden>
+<div class="sec">
+<div class="wrap">
+<div class="split">
+<div class="main stack" style="gap:20px">
+<h1>One prime. A whole region of local crews.</h1>
+<p class="lede">Grounds maintenance, landscaping and post-fire revegetation for agencies, property managers and HOAs. A single prime contractor holds the contract and delivers through vetted Green Hub members.</p>
+<div class="cols" style="margin-top:16px;gap:24px 28px">
+<div class="col"><h3>Federal agencies</h3><p class="muted">Service-disabled veteran-owned prime for set-aside and open bids.</p></div>
+<div class="col"><h3>Property managers and HOAs</h3><p class="muted">One contract and one invoice for every site in the region.</p></div>
+<div class="col"><h3>Restoration</h3><p class="muted">Native plant sourcing from regional nurseries plus planting crews.</p></div>
+</div>
+<form id="cap-form" class="formbox stack" novalidate style="margin-top:16px">
+<h3>Request a capability statement</h3>
+<div class="fgridf"><div class="field"><label for="c-org">Organization</label><input id="c-org" autocomplete="organization"></div><div class="field"><label for="c-email">Work email</label><input id="c-email" type="email" autocomplete="email"></div></div>
+<p class="err" id="c-err" role="alert" hidden>Add your organization and a valid email.</p>
+<button class="btn primary" type="submit" style="align-self:flex-start">Send me the statement</button>
+<p id="c-ok" hidden><b>Sent.</b> The capability statement is on its way to your inbox.</p>
+</form>
+</div>
+<aside class="stack" style="gap:22px">
+<figure><img class="photo" src="img/planting.jpg" alt="A crew planting native shrubs across an open hillside with conifers and a valley behind" width="900" height="675"><figcaption>Crews planting native shrubs on public land. Photo: Bureau of Land Management.</figcaption></figure>
+<h3>Contracting snapshot</h3>
+<dl class="facts">
+<dt>Prime</dt><dd>[PRIME CONTRACTOR]</dd>
+<dt>Status</dt><dd>Service-disabled veteran-owned</dd>
+<dt>UEI and CAGE</dt><dd>[UEI], [CAGE]</dd>
+<dt>NAICS</dt><dd>[CODES]</dd>
+<dt>Area</dt><dd>Jackson, Josephine and Klamath counties</dd>
+</dl>
+</aside>
+</div>
+</div>
+</div>
+</section>
+
+<!-- GUIDES -->
+<section data-view="guides" hidden>
+<div class="sec">
+<div class="wrap">
+<div class="head"><h1>Local guides</h1><p class="lede">Written for this valley by a horticulturist, not copied from a national site.</p></div>
+<h2 class="gh">Field guides</h2>
+<div class="tiles" id="g-list"></div>
+
+<h2 class="gh">Oregon resources</h2>
+<p class="muted" style="max-width:60ch;margin:-8px 0 20px">Free help from Oregon State University Extension and state agencies. Each link opens the source in a new tab.</p>
+<div class="rows">
+<div><h3>Growing in Oregon</h3><p class="muted">Extension’s handbook for planning a garden around your frost dates, soil and drainage.</p><a href="https://extension.oregonstate.edu/catalog/em-9027-growing-your-own" target="_blank" rel="noopener">OSU Extension ↗</a></div>
+<div><h3>Waterwise gardening</h3><p class="muted">Plant lists and irrigation advice for dry summers: group plants by thirst and water each group on its own schedule.</p><a href="https://extension.oregonstate.edu/catalog/em-9136-waterwise-gardening-central-oregon" target="_blank" rel="noopener">OSU Extension ↗</a></div>
+<div><h3>Caring for Oregon trees</h3><p class="muted">A homeowner’s guide to pruning, spotting trouble and knowing when the job needs an arborist.</p><a href="https://www.oregon.gov/odf/Documents/ForestBenefits/HomeownersGuidetoTreeCare.pdf" target="_blank" rel="noopener">Oregon Dept. of Forestry (PDF) ↗</a></div>
+<div><h3>Get help with a plant problem</h3><p class="muted">Send a description and photos of what you’re seeing and get an answer from Extension staff or a Master Gardener.</p><a href="https://extension.oregonstate.edu/ask-extension" target="_blank" rel="noopener">Ask Extension ↗</a></div>
+<div><h3>Find your local Extension office</h3><p class="muted">County offices for Jackson, Josephine and Klamath, with their Master Gardener programs and plant clinics.</p><a href="https://extension.oregonstate.edu/find-us" target="_blank" rel="noopener">OSU Extension ↗</a></div>
+<div><h3>Check a landscape contractor</h3><p class="muted">The state board’s consumer guide to licenses, bonds and contracts. Read it before you sign anything.</p><a href="https://www.oregon.gov/lcb/Pages/Consumer-Guide.aspx" target="_blank" rel="noopener">Landscape Contractors Board ↗</a></div>
+</div>
+
+<h2 class="gh">Browse by category</h2>
+<div class="cols">
+<div class="col"><h3>Nurseries</h3><p class="muted">Plants, soil and supplies in stock near you.</p><a href="#nurseries">Search the directory</a></div>
+<div class="col"><h3>Interior plants</h3><p class="muted">Plant care, installs and upkeep for homes and offices.</p><a href="#estimate" data-svc="Interior plant care">Get estimates</a></div>
+<div class="col"><h3>Lawn and landscape</h3><p class="muted">Mowing, seasonal cleanups, design and installs.</p><a href="#estimate" data-svc="Landscape design and install">Get estimates</a></div>
+<div class="col"><h3>Arborists</h3><p class="muted">Pruning, removals, planting and tree health.</p><a href="#estimate" data-svc="Tree planting and removal">Get estimates</a></div>
+<div class="col"><h3>Hardscape and irrigation</h3><p class="muted">Patios, walls, drip systems and sprinkler repair.</p><a href="#estimate" data-svc="Irrigation and drought conversion">Get estimates</a></div>
+<div class="col"><h3>Living walls and design</h3><p class="muted">Garden design, planted walls and specialty installs.</p><a href="#estimate" data-svc="Garden design and living walls">Get estimates</a></div>
+</div>
+
+<h2 class="gh">Browse by region</h2>
+<p class="muted" style="max-width:60ch;margin:-8px 0 16px">The Green Hub covers Southern Oregon. For the rest of the state, the Oregon Roots directory lists nurseries and pros in all 36 counties.</p>
+<ul class="regions">
+<li><a href="#services">Southern Oregon</a> <span class="muted small">covered here</span></li>
+<li><a href="https://oregon-roots.vodruteq.chatgpt.site/region/oregon-coast/" target="_blank" rel="noopener">Oregon Coast ↗</a></li>
+<li><a href="https://oregon-roots.vodruteq.chatgpt.site/region/portland-metro-columbia-river/" target="_blank" rel="noopener">Portland Metro and Columbia River ↗</a></li>
+<li><a href="https://oregon-roots.vodruteq.chatgpt.site/region/willamette-valley/" target="_blank" rel="noopener">Willamette Valley ↗</a></li>
+<li><a href="https://oregon-roots.vodruteq.chatgpt.site/region/central-oregon/" target="_blank" rel="noopener">Central Oregon ↗</a></li>
+<li><a href="https://oregon-roots.vodruteq.chatgpt.site/region/eastern-oregon/" target="_blank" rel="noopener">Eastern Oregon ↗</a></li>
+<li><a href="https://oregon-roots.vodruteq.chatgpt.site/oregon/" target="_blank" rel="noopener">All 36 counties ↗</a></li>
+</ul>
+<div class="row" style="margin-top:56px;justify-content:space-between;gap:20px 40px;border-top:2px solid var(--head);padding-top:22px;align-items:flex-end">
+<div class="stack" style="gap:6px;max-width:520px"><h3>The seasonal letter</h3><p class="muted">Sales, plant arrivals and what to do in the yard this month. Once a month.</p></div>
+<form id="news" class="row" novalidate style="flex:1 1 360px;align-items:flex-end">
+<div class="field" style="flex:1 1 220px"><label for="n-email">Email</label><input id="n-email" type="email" autocomplete="email" placeholder="you@example.com"></div>
+<button class="btn primary" type="submit">Subscribe</button>
+<p id="news-msg" role="status" style="width:100%"></p>
+</form>
+</div>
+</div>
+</div>
+</section>
+
+<!-- WATERWISE GUIDE -->
+<section data-view="waterwise" hidden>
+<div class="sec">
+<div class="wrap">
+<p class="crumbs"><a href="#guides">Guides</a> / Waterwise yards</p>
+<div class="split">
+<div class="main article stack" style="gap:16px">
+<h1>Waterwise yards</h1>
+<p class="lede">A field guide to watering, plant choice and knowing which jobs to hand off. Start by finding where your yard dries out and where it stays wet.</p>
+<ol class="steps-list" style="margin-top:12px">
+<li><h3>Watch your irrigation run</h3><p class="muted">Turn on one zone at a time and walk it. Look for broken or buried heads, spray landing on pavement and spots where water pools. Flag those zones before you touch the timer.</p></li>
+<li><h3>Group plants by how much they drink</h3><p class="muted">Visit the yard morning, midday and evening. Note the hot slopes, the sheltered corners and the places that drain slowly. Plants with the same needs go on the same zone, so each area gets its own schedule.</p></li>
+<li><h3>Decide what to hand off</h3><p class="muted">Take photos and notes to a nursery when you pick plants. For leaks, uneven coverage or a system redesign, ask an irrigation pro what the inspection covers and whether repairs are part of the price.</p></li>
+</ol>
+<h2>Find help for the next step</h2>
+<div class="rows">
+<div><h3>Check irrigation or drainage</h3><p class="muted">Drip conversions, controller setup and repairs.</p><a href="#estimate" data-svc="Irrigation and drought conversion">Get irrigation estimates</a></div>
+<div><h3>Choose plants and supplies</h3><p class="muted">Nurseries with drought-tolerant stock nearby.</p><a href="#nurseries">Search nurseries</a></div>
+<div><h3>Plan a landscape change</h3><p class="muted">Lawn removal, regrading and new planting.</p><a href="#estimate" data-svc="Landscape design and install">Get landscape estimates</a></div>
+</div>
+<p class="muted small">Adapted from the <a href="https://oregon-roots.vodruteq.chatgpt.site/guides/central-oregon-waterwise/" target="_blank" rel="noopener">Oregon Roots field guide ↗</a>. For plant lists, see <a href="https://extension.oregonstate.edu/catalog/em-9136-waterwise-gardening-central-oregon" target="_blank" rel="noopener">OSU Extension’s waterwise gardening guide ↗</a>.</p>
+</div>
+<aside><img class="photo" src="img/drip.jpg" alt="A drip irrigation line and coupling lying on dry garden soil" width="900" height="675"></aside>
+</div>
+</div>
+</div>
+</section>
+
+<!-- GUIDE ARTICLE -->
+<section data-view="fire-plants" hidden>
+<div class="sec">
+<div class="wrap">
+<p class="crumbs"><a href="#guides">Guides</a> / Fire-resistant planting</p>
+<article class="stack" style="gap:16px">
+<h1 style="max-width:16ch">Fire-resistant planting for the Rogue Valley</h1>
+<p class="lede">No plant is fireproof. The right plants, spaced and watered well, burn slower and give firefighters a better chance.</p>
+<figure style="margin:12px 0"><img class="photo" src="img/savanna.jpg" alt="Dry summer grass on Upper Table Rock with dark conifers and Mount McLoughlin on the horizon" width="1400" height="700"><figcaption>Cured summer grass on Upper Table Rock. By August, most of the valley floor looks like this. Photo: Bureau of Land Management.</figcaption></figure>
+<div class="article stack" style="gap:14px">
+<h2>What makes a plant fire-resistant</h2>
+<ul><li>Moist, supple leaves that don’t dry out in August</li><li>Low sap and resin content</li><li>Little dead wood, twigs or leaf litter building up inside</li><li>Low growth that doesn’t form a ladder to trees or eaves</li></ul>
+<h2>What to pull first</h2>
+<p>Dense, resinous shrubs and anything with dry, dead material inside, especially within five feet of the house.</p>
+<h2>Local plant list</h2>
+<p>[HORTICULTURIST’S PLANT LIST: species, size, water needs and which local nurseries stock each one.]</p>
+<div class="row" style="margin-top:12px"><a class="btn primary" href="#firewise">Find firewise pros</a><a class="btn ghost" href="#nurseries">Find these plants in stock</a></div>
+</div>
+</article>
+</div>
+</div>
+</section>
+
+</main>
+
+<footer>
+<div class="wrap">
+<div class="fgrid">
+<div class="stack" style="gap:8px"><span style="font:700 26px var(--display);letter-spacing:.03em;text-transform:uppercase;color:#FFFFFF">The Green Hub</span><span>Making green for the green industry.</span><span>[PHONE] · [EMAIL]</span></div>
+<div class="stack" style="gap:6px"><span class="fhead">Find</span><a href="#services">Services</a><a href="#nurseries">Nursery directory</a><a href="#guides">Local guides</a></div>
+<div class="stack" style="gap:6px"><span class="fhead">Pros</span><a href="#pros">Join the network</a><a href="#commercial">Commercial and government</a><a href="#apply">Apply</a></div>
+<div class="stack" style="gap:6px"><span class="fhead">Guides</span><a href="#waterwise">Waterwise yards</a><a href="#fire-plants">Fire-resistant planting</a><a href="#guides">Oregon resources</a></div>
+</div>
+<details>
+<summary>Photo credits</summary>
+<ul>
+<li><a href="https://commons.wikimedia.org/wiki/File:Mcloughlin_from_Lower_Table_Rock_(15115406094).jpg">Mt. McLoughlin from Lower Table Rock</a>: Bureau of Land Management Oregon and Washington, public domain</li>
+<li><a href="https://commons.wikimedia.org/wiki/File:Fuels_treatment_near_homes_in_the_Jacksonville_Woodlands_(54378696974).jpg">Fuels treatment, Jacksonville Woodlands</a>: BLM Oregon and Washington, public domain</li>
+<li><a href="https://commons.wikimedia.org/wiki/File:Piles_of_brush_gathered_in_fuels_treatment_in_the_Jacksonville_Woodlands_(54378887605).jpg">Brush piles, Jacksonville Woodlands</a>: BLM Oregon and Washington, public domain</li>
+<li><a href="https://commons.wikimedia.org/wiki/File:Upper_Table_Rock_(15701028229).jpg">Upper Table Rock</a>: BLM Oregon and Washington, public domain</li>
+<li><a href="https://commons.wikimedia.org/wiki/File:From_Seeds_to_Shrubs-_Missoula_Employees_Plant_the_Future_(20665263595).jpg">Shrub planting crew</a>: Bureau of Land Management, public domain</li>
+<li><a href="https://commons.wikimedia.org/wiki/File:Klamath_Basin_landscape.jpg">Klamath Basin landscape</a>: public domain, via Wikimedia Commons</li>
+<li><a href="https://commons.wikimedia.org/wiki/File:Nursery_stock_2_in_rural_Washington_County,_Oregon.JPG">Nursery stock, hillside rows</a> and <a href="https://commons.wikimedia.org/wiki/File:Nursery_stock_in_rural_Washington_County,_Oregon.JPG">nursery fields</a>: M.O. Stevens, <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a></li>
+<li><a href="https://commons.wikimedia.org/wiki/File:Tree_Pruning.jpg">Arborist pruning</a>: TreeMinion15, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></li>
+<li><a href="https://commons.wikimedia.org/wiki/File:Drip_irrigation_system_installed_in_a_garden_for_efficient_water_management_during_summer.jpg">Drip irrigation line</a> and <a href="https://commons.wikimedia.org/wiki/File:Lawn_mowing_with_a_red_Honda_riding_mower_under_a_tree_in_a_garden_undefined.jpg">riding mower</a>: Shixart1985, <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a></li>
+<li><a href="https://commons.wikimedia.org/wiki/File:Workers_continue_to_perfect_the_gardens_and_grounds._(3369618927).jpg">Mulching a planting bed</a>: VisitCentralFL, <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a></li>
+<li>All photos are cropped and resized from the originals. They stand in until photos from real member jobs replace them.</li>
+</ul>
+</details>
+<p class="legal">Services are performed by independent, licensed network members, each a separate business. Prototype site: forms do not send data. © 2027 The Green Hub</p>
+</div>
+</footer>
+
+<script>
+(function(){
+var SVCS=[
+ {n:"Firewise and defensible space",d:"Fire-resistant plantings, clearing and zones around your home.",href:"#firewise",img:"firewise.jpg",alt:"Cut brush stacked in piles on a cleared hillside above a valley of homes"},
+ {n:"Landscape design and install",d:"From a plan on paper to plants in the ground.",href:"#services",img:"install.jpg",alt:"A landscaper spreading red mulch around shrubs along a lawn edge"},
+ {n:"Tree planting and removal",d:"Arborists, planting crews and storm cleanup.",href:"#services",img:"tree.jpg",alt:"An arborist in a helmet and climbing harness pruning high in a conifer"},
+ {n:"Irrigation and drought conversion",d:"Drip systems, smart controllers and water-wise yards.",href:"#services",img:"drip.jpg",alt:"A drip irrigation line and coupling lying on dry garden soil"},
+ {n:"Yard debris and junk removal",d:"Brush, branches, old sheds and everything in between.",href:"#services",img:"debris.jpg",alt:"Piles of cut brush beside a dirt path among pines"},
+ {n:"Lawn care",d:"Mowing, aeration, seeding and seasonal cleanups.",href:"#services",img:"lawn.jpg",alt:"A red riding mower parked on cut grass under a flowering tree"}
+];
+function tile(href,img,alt,title,desc,extra,svc){return '<a class="tile" href="'+href+'"'+(svc?' data-svc="'+svc+'"':'')+'><img src="img/'+img+'" alt="'+alt+'" width="900" height="675" loading="lazy"><span class="t">'+title+'</span><span class="d">'+desc+'</span>'+(extra||'')+'</a>';}
+var SV2=SVCS.map(function(s){return tile(s.href==="#services"?"#estimate":s.href,s.img,s.alt,s.n,s.d,'',s.n);}).join('');
+document.getElementById('svc-grid').innerHTML=SV2;
+document.getElementById('svc-grid-2').innerHTML=SV2;
+document.getElementById('w-svc').innerHTML=SVCS.map(function(s){return s.n;}).concat(["Interior plant care","Garden design and living walls"]).map(function(n){return '<option>'+n+'</option>';}).join('');
+
+var NURS=[
+ {n:"Sample nursery A",t:"Medford",c:["Natives","Fruit trees","Soil"],s:"Bare-root fruit trees in stock",f:true},
+ {n:"Sample nursery B",t:"Grants Pass",c:["Perennials","Shrubs","Houseplants"],s:"Spring sale this weekend",f:false},
+ {n:"Sample nursery C",t:"Ashland",c:["Natives","Perennials","Soil"],s:"Pollinator plants arriving",f:false},
+ {n:"Sample nursery D",t:"Klamath Falls",c:["Shrubs","Fruit trees"],s:"Cold-hardy shrubs in stock",f:false},
+ {n:"Sample nursery E",t:"Chiloquin",c:["Natives","Soil"],s:"Native seed mixes available",f:false}
+];
+var CATS=["All","Natives","Fruit trees","Perennials","Shrubs","Houseplants","Soil"],cat="All";
+var chips=document.getElementById('n-chips');
+chips.innerHTML=CATS.map(function(c){return '<button type="button" class="chip" aria-pressed="'+(c==="All")+'">'+c+'</button>';}).join('');
+chips.addEventListener('click',function(e){var b=e.target.closest('.chip');if(!b)return;cat=b.textContent;chips.querySelectorAll('.chip').forEach(function(x){x.setAttribute('aria-pressed',x===b);});renderN();});
+function renderN(){
+ var q=document.getElementById('n-q').value.trim().toLowerCase(),town=document.getElementById('n-town').value;
+ var r=NURS.filter(function(x){return (!town||x.t===town)&&(cat==="All"||x.c.indexOf(cat)>-1)&&(!q||(x.n+' '+x.c.join(' ')+' '+x.s).toLowerCase().indexOf(q)>-1);});
+ document.getElementById('n-count').textContent=r.length+(r.length===1?' nursery':' nurseries')+'. Sample listings until real partners are added.';
+ document.getElementById('n-list').innerHTML=r.length?r.map(function(x){return '<div class="nrow"><div>'+(x.f?'<span class="label">Featured</span>':'')+'<h3>'+x.n+'</h3><span class="muted">'+x.t+'</span></div><div><span class="stock">'+x.s+'</span><br><span class="muted small">'+x.c.join(', ')+'</span></div><a href="#nurseries">Visit website</a></div>';}).join(''):'<div class="empty"><b>No nurseries match.</b><p class="muted">Try another town or category, or clear your search.</p></div>';
+}
+document.getElementById('n-q').addEventListener('input',renderN);
+document.getElementById('n-town').addEventListener('change',renderN);
+renderN();
+
+var GUIDES=[
+ {k:"Water",t:"Waterwise yards",d:"Check your irrigation, group plants by thirst and know what to hand off.",h:"#waterwise",img:"drip.jpg",alt:"A drip irrigation line and coupling lying on dry garden soil"},
+ {k:"Wildfire",t:"Fire-resistant planting for the Rogue Valley",d:"What to plant, where, and what to pull first.",h:"#fire-plants",img:"savanna.jpg",alt:"Dry summer grass on Upper Table Rock with conifers on the horizon"},
+ {k:"Seasonal",t:"Bare-root season, explained",d:"When to buy, how to plant and which nurseries carry them.",h:"#guides",img:"nursery-fields.jpg",alt:"Striped fields of young nursery stock on rolling Oregon hills"},
+ {k:"High desert",t:"Gardening in the Klamath Basin",d:"Short seasons, cold nights and plants that thrive anyway.",h:"#guides",img:"klamath.jpg",alt:"Storm clouds building over green marsh in the Klamath Basin"}
+];
+document.getElementById('g-list').innerHTML=GUIDES.map(function(g){return tile(g.h,g.img,g.alt,g.t,g.d,'<span class="label">'+g.k+(g.h==="#guides"?' · coming soon':'')+'</span>');}).join('');
+
+/* estimate widget */
+var PROS=[{n:"Sample pro 1",d:"Firewise and landscape install, 12 years in the valley"},{n:"Sample pro 2",d:"Tree and brush crews, chipping and haul-away"},{n:"Sample pro 3",d:"Design, planting and irrigation"}];
+document.getElementById('w-pros').innerHTML=PROS.map(function(p,i){return '<label class="pick" for="p'+i+'"><input type="checkbox" id="p'+i+'" value="'+p.n+'"><span><b>'+p.n+'</b><span class="muted small">'+p.d+'</span><br><span class="small" style="font-weight:600;color:var(--link)">License and insurance checked</span></span></label>';}).join('');
+var W=['w1','w2','w3','w4'].map(function(id){return document.getElementById(id);});
+function step(i){W.forEach(function(f,j){f.hidden=j!==i;});['st1','st2','st3'].forEach(function(id,j){document.getElementById(id).classList.toggle('on',j<=Math.min(i,2));});var h=W[i].querySelector('h2');if(h){h.setAttribute('tabindex','-1');h.focus({preventScroll:true});}}
+W[0].addEventListener('submit',function(e){e.preventDefault();var z=document.getElementById('w-zip').value.trim();var bad=!/^\d{5}$/.test(z);document.getElementById('w1-err').hidden=!bad;if(!bad)step(1);});
+W[1].addEventListener('submit',function(e){e.preventDefault();var n=W[1].querySelectorAll('input:checked').length;document.getElementById('w2-err').hidden=n>0;if(n>0)step(2);});
+W[1].addEventListener('change',function(e){var c=W[1].querySelectorAll('input:checked');if(c.length>3)e.target.checked=false;});
+W[2].addEventListener('submit',function(e){e.preventDefault();var ok=document.getElementById('w-name').value.trim()&&document.getElementById('w-phone').value.replace(/\D/g,'').length>=10;document.getElementById('w3-err').hidden=!!ok;if(!ok)return;var picked=[].map.call(W[1].querySelectorAll('input:checked'),function(x){return x.value;});document.getElementById('w4-msg').textContent='Your '+document.getElementById('w-svc').value.toLowerCase()+' request went to '+picked.join(', ')+'. Only they can see it, and they’ll call you to set up a free quote.';step(3);});
+document.getElementById('w2-back').onclick=function(){step(0);};
+document.getElementById('w3-back').onclick=function(){step(1);};
+document.getElementById('w-reset').onclick=function(){W.slice(0,3).forEach(function(f){f.reset();});step(0);};
+
+function simple(formId,errId,okId,test){var f=document.getElementById(formId);f.addEventListener('submit',function(e){e.preventDefault();var ok=test();document.getElementById(errId).hidden=ok;if(ok){document.getElementById(okId).hidden=false;f.querySelector('button[type=submit]').disabled=true;}});}
+simple('apply-form','a-err','a-ok',function(){return ['a-name','a-biz'].every(function(i){return document.getElementById(i).value.trim();})&&document.getElementById('a-phone').value.replace(/\D/g,'').length>=10;});
+simple('cap-form','c-err','c-ok',function(){return !!document.getElementById('c-org').value.trim()&&/^\S+@\S+\.\S+$/.test(document.getElementById('c-email').value);});
+document.getElementById('news').addEventListener('submit',function(e){e.preventDefault();var ok=/^\S+@\S+\.\S+$/.test(document.getElementById('n-email').value);document.getElementById('news-msg').textContent=ok?'Subscribed. Your first letter arrives at the start of next month.':'Enter a valid email address.';});
+
+/* routing */
+var VIEWS=[].slice.call(document.querySelectorAll('[data-view]'));
+var ALIAS={estimate:'home',apply:'pros'};
+var nav=document.getElementById('nav'),menu=document.getElementById('menuBtn');
+menu.onclick=function(){var o=nav.classList.toggle('open');menu.setAttribute('aria-expanded',o);};
+function route(){
+ var h=(location.hash||'#home').slice(1);
+ var v=ALIAS[h]||h; if(!VIEWS.some(function(x){return x.dataset.view===v;}))v='home';
+ VIEWS.forEach(function(x){x.hidden=x.dataset.view!==v;});
+ document.querySelectorAll('.links a').forEach(function(a){if(a.getAttribute('href')==='#'+v)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});
+ nav.classList.remove('open');menu.setAttribute('aria-expanded','false');
+ if(h==='estimate'){var w=document.getElementById('estimate-widget');w.scrollIntoView({block:'center'});var s=document.getElementById('w-zip');setTimeout(function(){s.focus({preventScroll:true});},50);}
+ else if(h==='apply'){document.getElementById('apply').scrollIntoView({block:'start'});}
+ else window.scrollTo(0,0);
+ var titles={home:'The Green Hub',services:'Services | The Green Hub',firewise:'Firewise landscaping | The Green Hub',nurseries:'Nursery directory | The Green Hub',pros:'For pros | The Green Hub',commercial:'Commercial and government | The Green Hub',guides:'Local guides | The Green Hub',waterwise:'Waterwise yards | The Green Hub','fire-plants':'Fire-resistant planting | The Green Hub'};
+ document.title=titles[v]||titles.home;
+}
+document.addEventListener('click',function(e){var a=e.target.closest('[data-svc]');if(a){var sel=document.getElementById('w-svc');sel.value=a.getAttribute('data-svc');if(a.getAttribute('href')===location.hash){e.preventDefault();route();}}});
+window.addEventListener('hashchange',route);
+route();
+})();
+</script>
+
+</body>
+</html>
